@@ -16,7 +16,7 @@
  */
 package reunited.kickstart.service;
 
-import reunited.kickstart.model.Member;
+import reunited.kickstart.model.Profile;
 
 import javax.ejb.Stateless;
 import javax.enterprise.event.Event;
@@ -26,7 +26,7 @@ import java.util.logging.Logger;
 
 // The @Stateless annotation eliminates the need for manual transaction demarcation
 @Stateless
-public class MemberRegistration {
+public class ProfileRegistration {
 
     @Inject
     private Logger log;
@@ -35,9 +35,9 @@ public class MemberRegistration {
     private EntityManager em;
 
     @Inject
-    private Event<Member> memberEventSrc;
+    private Event<Profile> memberEventSrc;
 
-    public void register(Member member) throws Exception {
+    public void register(Profile member) throws Exception {
         log.info("Registering " + member.getName());
         em.persist(member);
         memberEventSrc.fire(member);

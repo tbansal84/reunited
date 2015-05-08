@@ -24,9 +24,6 @@ import javax.inject.Inject;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
-import reunited.kickstart.model.Member;
-import reunited.kickstart.service.MemberRegistration;
-import reunited.kickstart.util.Resources;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
@@ -34,12 +31,16 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import reunited.kickstart.model.Profile;
+import reunited.kickstart.service.ProfileRegistration;
+import reunited.kickstart.util.Resources;
+
 @RunWith(Arquillian.class)
 public class MemberRegistrationTest {
     @Deployment
     public static Archive<?> createTestArchive() {
         return ShrinkWrap.create(WebArchive.class, "test.war")
-                .addClasses(Member.class, MemberRegistration.class, Resources.class)
+                .addClasses(Profile.class, ProfileRegistration.class, Resources.class)
                 .addAsResource("META-INF/test-persistence.xml", "META-INF/persistence.xml")
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml")
                 // Deploy our test datasource
@@ -47,14 +48,14 @@ public class MemberRegistrationTest {
     }
 
     @Inject
-    MemberRegistration memberRegistration;
+    ProfileRegistration memberRegistration;
 
     @Inject
     Logger log;
 
     @Test
     public void testRegister() throws Exception {
-        Member newMember = new Member();
+        Profile newMember = new Profile();
         newMember.setName("Jane Doe");
         newMember.setEmail("jane@mailinator.com");
         newMember.setPhoneNumber("2125551234");

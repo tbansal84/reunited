@@ -24,33 +24,33 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import reunited.kickstart.model.Member;
-import reunited.kickstart.service.MemberRegistration;
+import reunited.kickstart.model.Profile;
+import reunited.kickstart.service.ProfileRegistration;
 
 // The @Model stereotype is a convenience mechanism to make this a request-scoped bean that has an
 // EL name
 // Read more about the @Model stereotype in this FAQ:
 // http://www.cdi-spec.org/faq/#accordion6
 @Model
-public class MemberController {
+public class ProfileController {
 
     @Inject
     private FacesContext facesContext;
 
     @Inject
-    private MemberRegistration memberRegistration;
+    private ProfileRegistration profileRegistration;
 
-    private Member newMember;
+    private Profile newMember;
 
     @Produces
     @Named
-    public Member getNewMember() {
+    public Profile getNewMember() {
         return newMember;
     }
 
     public void register() throws Exception {
         try {
-            memberRegistration.register(newMember);
+            profileRegistration.register(newMember);
             facesContext.addMessage(null,
                     new FacesMessage(FacesMessage.SEVERITY_INFO, "Registered!", "Registration successful"));
             initNewMember();
@@ -63,7 +63,7 @@ public class MemberController {
 
     @PostConstruct
     public void initNewMember() {
-        newMember = new Member();
+        newMember = new Profile();
     }
 
     private String getRootErrorMessage(Exception e) {

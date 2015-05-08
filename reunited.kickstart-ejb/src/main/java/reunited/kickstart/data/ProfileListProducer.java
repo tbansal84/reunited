@@ -25,25 +25,25 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.List;
 
-import reunited.kickstart.model.Member;
+import reunited.kickstart.model.Profile;
 
 @RequestScoped
-public class MemberListProducer {
+public class ProfileListProducer {
 
     @Inject
-    private MemberRepository memberRepository;
+    private ProfileRepository memberRepository;
 
-    private List<Member> members;
+    private List<Profile> members;
 
     // @Named provides access the return value via the EL variable name "members" in the UI (e.g.,
     // Facelets or JSP view)
     @Produces
     @Named
-    public List<Member> getMembers() {
+    public List<Profile> getMembers() {
         return members;
     }
 
-    public void onMemberListChanged(@Observes(notifyObserver = Reception.IF_EXISTS) final Member member) {
+    public void onMemberListChanged(@Observes(notifyObserver = Reception.IF_EXISTS) final Profile member) {
         retrieveAllMembersOrderedByName();
     }
 
