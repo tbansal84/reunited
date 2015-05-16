@@ -1,23 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"   
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-       xmlns:p="http://primefaces/org/ui"
-      >
-    <h:body>
- 
-    	<ui:composition template="/common/layout.xhtml">
- 
-    		<ui:define name="content">
-    			Hi , I am welcome page
-    		</ui:define>
- 
-		
- 
-    	</ui:composition>
- 
-    </h:body>
- 
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces/org/ui">
+<h:body>
+
+	<ui:composition template="/common/layout.xhtml">
+
+		<!-- 
+	private Integer branchId;
+	private String gender;
+	private String firstname;
+	private String lastname;
+	private Date dob;
+	private Date joiningdate;
+	private Date enddate;
+	private Integer addressid;
+	private String isuser;
+	private String registrationid;
+ -->
+		<ui:define name="content">
+			<h:panelGrid columns=2>
+				<h:outputText value="First Name"></h:outputText>
+				<h:inputText value="#{student.firstname}">
+				</h:inputText>
+				<h:outputText value="Last Name"></h:outputText>
+				<h:inputText value="#{student.lastname}">
+				</h:inputText>
+				<h:outputText value="Gender"></h:outputText>
+
+				<h:outputText value="Branch"></h:outputText>
+				<h:inputText value="#{student.branchId}">
+				</h:inputText>
+				<h:outputText value="DOB"></h:outputText>
+				<h:inputText value="#{student.dob}">
+				</h:inputText>
+
+				<h:commandButton action="#{profileController.register}" value="Register"></h:commandButton>
+			</h:panelGrid>
+		</ui:define>
+
+
+
+	</ui:composition>
+
+</h:body>
+
 </html>

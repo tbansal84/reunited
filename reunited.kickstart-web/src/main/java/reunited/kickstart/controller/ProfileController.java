@@ -24,36 +24,30 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import reunited.kickstart.convertandsave.StudentConverter;
 import reunited.kickstart.model.Profile;
 import reunited.kickstart.service.ProfileRegistration;
+import reunited.kickstart.service.StudentRegistration;
 
-// The @Model stereotype is a convenience mechanism to make this a request-scoped bean that has an
-// EL name
-// Read more about the @Model stereotype in this FAQ:
-// http://www.cdi-spec.org/faq/#accordion6
 @Model
 public class ProfileController {
 
     @Inject
     private FacesContext facesContext;
+    
+    @Inject 
+    StudentBean student;
 
-    @Inject
-    private ProfileRegistration profileRegistration;
+@Inject
+StudentRegistration studentRegistration;
 
-    private Profile newMember;
-
-    @Produces
-    @Named
-    public Profile getNewMember() {
-        return newMember;
-    }
 
     public void register() throws Exception {
         try {
-            profileRegistration.register(newMember);
+			studentRegistration.register(new StudentConverter()
+					.getStudentEntity(student));
             facesContext.addMessage(null,
                     new FacesMessage(FacesMessage.SEVERITY_INFO, "Registered!", "Registration successful"));
-            initNewMember();
         } catch (Exception e) {
             String errorMessage = getRootErrorMessage(e);
             FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Registration Unsuccessful");
@@ -61,10 +55,6 @@ public class ProfileController {
         }
     }
 
-    @PostConstruct
-    public void initNewMember() {
-        newMember = new Profile();
-    }
 
     private String getRootErrorMessage(Exception e) {
         // Default to general error message that registration failed.
