@@ -1,8 +1,7 @@
 package reunited.kickstart.convertandsave;
 
 import reunited.kickstart.controller.StudentBean;
-
-import com.reunited.entities.Student;
+import reunited.kickstart.model.Student;
 
 public class StudentConverter {
 

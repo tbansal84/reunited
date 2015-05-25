@@ -1,6 +1,6 @@
 package com.reunited.entities;
 
-// Generated May 16, 2015 11:25:36 PM by Hibernate Tools 4.3.1
+// Generated May 16, 2015 11:25:20 PM by Hibernate Tools 4.3.1
 
 import java.util.Date;
 import javax.persistence.Column;

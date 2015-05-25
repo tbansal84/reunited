@@ -1,14 +1,12 @@
 package com.reunited.entities;
 
-// Generated May 16, 2015 11:25:36 PM by Hibernate Tools 4.3.1
+// Generated May 16, 2015 11:25:20 PM by Hibernate Tools 4.3.1
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 
 /**
  * Home object for domain model class Student.

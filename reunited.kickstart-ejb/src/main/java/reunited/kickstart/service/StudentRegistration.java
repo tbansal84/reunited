@@ -19,13 +19,11 @@ package reunited.kickstart.service;
 import java.util.logging.Logger;
 
 import javax.ejb.Stateless;
-import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
-import com.reunited.entities.Student;
+import reunited.kickstart.model.Student;
 
-import reunited.kickstart.model.Profile;
 
 // The @Stateless annotation eliminates the need for manual transaction demarcation
 @Stateless
@@ -37,12 +35,11 @@ public class StudentRegistration {
     @Inject
     private EntityManager em;
 
-    @Inject
-    private Event<Profile> memberEventSrc;
+//    @Inject
+//    private Event<Profile> memberEventSrc;
 
     public void register(Student member) throws Exception {
-        log.info("Registering " + member.getName());
+        log.info("Registering " + member.getFirstname());
         em.persist(member);
-        memberEventSrc.fire(member);
     }
 }

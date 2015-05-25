@@ -16,39 +16,30 @@
  */
 package reunited.kickstart.data;
 
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
-import javax.enterprise.event.Observes;
-import javax.enterprise.event.Reception;
-import javax.enterprise.inject.Produces;
-import javax.inject.Inject;
-import javax.inject.Named;
-import java.util.List;
-
-import reunited.kickstart.model.Profile;
 
 @RequestScoped
 public class ProfileListProducer {
 
-    @Inject
-    private ProfileRepository memberRepository;
-
-    private List<Profile> members;
-
-    // @Named provides access the return value via the EL variable name "members" in the UI (e.g.,
-    // Facelets or JSP view)
-    @Produces
-    @Named
-    public List<Profile> getMembers() {
-        return members;
-    }
-
-    public void onMemberListChanged(@Observes(notifyObserver = Reception.IF_EXISTS) final Profile member) {
-        retrieveAllMembersOrderedByName();
-    }
-
-    @PostConstruct
-    public void retrieveAllMembersOrderedByName() {
-        members = memberRepository.findAllOrderedByName();
-    }
+//    @Inject
+//    private ProfileRepository memberRepository;
+//
+//    private List<Profile> members;
+//
+//    // @Named provides access the return value via the EL variable name "members" in the UI (e.g.,
+//    // Facelets or JSP view)
+//    @Produces
+//    @Named
+//    public List<Profile> getMembers() {
+//        return members;
+//    }
+//
+//    public void onMemberListChanged(@Observes(notifyObserver = Reception.IF_EXISTS) final Profile member) {
+//        retrieveAllMembersOrderedByName();
+//    }
+//
+//    @PostConstruct
+//    public void retrieveAllMembersOrderedByName() {
+//        members = memberRepository.findAllOrderedByName();
+//    }
 }
