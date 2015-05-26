@@ -11,17 +11,19 @@
 	<ui:composition template="/common/layout.xhtml">
 
 		<ui:define name="content">
-			<h:panelGrid columns="2">
-				<r:address addressLine1Label="Address 1"
-					addressLine1value="#{addressBean.addressLine1}"></r:address>
-				<r:user firstnamelbl="First Name"
-					firstnamevalue="#{userBean.firstName}" middlenamelbl="Middle Name"
-					middlenamevalue="#{userBean.middleName}" lastnamelbl="Last Name"
-					lastnamevalue="#{userBean.surName}"></r:user>
 
-				<h:commandButton action="#{profileController.register}"
-					value="Register"></h:commandButton>
-			</h:panelGrid>
+			<h:form id="form1">
+				<h:panelGrid columns="2" id="grid">
+					<r:address addressLine1Label="Address 1"
+						addressLine1value="#{addressBean.addressLine1}" id="address"></r:address>
+					<r:user firstnamelbl="First Name"
+						firstnamevalue="#{userBean.firstName}" middlenamelbl="Middle Name"
+						middlenamevalue="#{userBean.middleName}" lastnamelbl="Last Name"
+						lastnamevalue="#{userBean.surName}" id="user"></r:user>
+					<h:commandButton action="#{profileController.register}"
+						value="Register" id="button"></h:commandButton>
+				</h:panelGrid>
+			</h:form>
 		</ui:define>
 
 

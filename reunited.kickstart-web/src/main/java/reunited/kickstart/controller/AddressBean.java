@@ -11,7 +11,7 @@ import com.reunited.entities.Address;
 import com.reunited.entities.Branch;
 import com.reunited.entities.Code;
 
-@ManagedBean(name = "student", eager = true)
+@ManagedBean(name = "addressBean", eager = true)
 @RequestScoped
 public class AddressBean implements java.io.Serializable {
 

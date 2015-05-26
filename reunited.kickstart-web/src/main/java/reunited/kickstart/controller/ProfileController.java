@@ -40,6 +40,7 @@ public class ProfileController {
 	StudentRegistration studentRegistration;
 
 	public void register() throws Exception {
+		System.out.println("registering \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 		try {
 			studentRegistration.register(new StudentConverter()
 					.getStudentEntity(student));
