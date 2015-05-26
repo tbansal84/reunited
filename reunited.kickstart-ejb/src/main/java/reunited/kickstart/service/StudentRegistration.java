@@ -22,8 +22,6 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
-import reunited.kickstart.model.Student;
-
 
 // The @Stateless annotation eliminates the need for manual transaction demarcation
 @Stateless
@@ -38,8 +36,8 @@ public class StudentRegistration {
 //    @Inject
 //    private Event<Profile> memberEventSrc;
 
-    public void register(Student member) throws Exception {
-        log.info("Registering " + member.getFirstname());
+    public void register(com.reunited.entities.Student member) throws Exception {
+        log.info("Registering " + member.getUser().getUserFirstName());
         em.persist(member);
     }
 }

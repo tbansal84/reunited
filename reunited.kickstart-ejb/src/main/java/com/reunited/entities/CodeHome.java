@@ -1,30 +1,28 @@
-package reunited.kickstart.model;
+package com.reunited.entities;
 
-// Generated May 16, 2015 11:25:36 PM by Hibernate Tools 4.3.1
+// Generated May 26, 2015 3:56:20 PM by Hibernate Tools 4.3.1
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-
 /**
- * Home object for domain model class Student.
- * @see reunited.kickstart.model.Student
+ * Home object for domain model class Code.
+ * @see com.reunited.entities.Code
  * @author Hibernate Tools
  */
 @Stateless
-public class StudentHome {
+public class CodeHome {
 
-	private static final Log log = LogFactory.getLog(StudentHome.class);
+	private static final Log log = LogFactory.getLog(CodeHome.class);
 
 	@PersistenceContext
 	private EntityManager entityManager;
 
-	public void persist(Student transientInstance) {
-		log.debug("persisting Student instance");
+	public void persist(Code transientInstance) {
+		log.debug("persisting Code instance");
 		try {
 			entityManager.persist(transientInstance);
 			log.debug("persist successful");
@@ -34,8 +32,8 @@ public class StudentHome {
 		}
 	}
 
-	public void remove(Student persistentInstance) {
-		log.debug("removing Student instance");
+	public void remove(Code persistentInstance) {
+		log.debug("removing Code instance");
 		try {
 			entityManager.remove(persistentInstance);
 			log.debug("remove successful");
@@ -45,10 +43,10 @@ public class StudentHome {
 		}
 	}
 
-	public Student merge(Student detachedInstance) {
-		log.debug("merging Student instance");
+	public Code merge(Code detachedInstance) {
+		log.debug("merging Code instance");
 		try {
-			Student result = entityManager.merge(detachedInstance);
+			Code result = entityManager.merge(detachedInstance);
 			log.debug("merge successful");
 			return result;
 		} catch (RuntimeException re) {
@@ -57,10 +55,10 @@ public class StudentHome {
 		}
 	}
 
-	public Student findById(Integer id) {
-		log.debug("getting Student instance with id: " + id);
+	public Code findById(Integer id) {
+		log.debug("getting Code instance with id: " + id);
 		try {
-			Student instance = entityManager.find(Student.class, id);
+			Code instance = entityManager.find(Code.class, id);
 			log.debug("get successful");
 			return instance;
 		} catch (RuntimeException re) {
