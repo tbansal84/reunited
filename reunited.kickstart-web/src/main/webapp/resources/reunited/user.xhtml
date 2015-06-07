@@ -9,17 +9,17 @@
 
 <composite:interface>
 
-	<composite:attribute name="firstnamelbl" />
+	<composite:attribute name="firstnamelabel" />
 	<composite:attribute name="firstnamevalue" />
-		<composite:attribute name="middlenamelbl" />
+		<composite:attribute name="middlenamelabel" />
 	<composite:attribute name="middlenamevalue" />
-		<composite:attribute name="lastnamelbl" />
+		<composite:attribute name="lastnamelabel" />
 	<composite:attribute name="lastnamevalue" />
-		<composite:attribute name="doblbl" />
+		<composite:attribute name="doblabel" />
 	<composite:attribute name="dobvalue" />
-		<composite:attribute name="joiningdatelbl" />
+		<composite:attribute name="joiningdatelabel" />
 	<composite:attribute name="joiningdatevalue" />
-	<composite:attribute name="enddatelbl" />
+	<composite:attribute name="enddatelabel" />
 	<composite:attribute name="enddatevalue" />
 </composite:interface>
 
@@ -28,15 +28,15 @@
 
 
 	<h:panelGrid columns="2" id="textPanel">
-			#{cc.attrs.firstnamelbl} : 
+			#{cc.attrs.firstnamelabel} : 
 			<h:inputText id="name" value="#{cc.attrs.firstnamevalue}" />
-			#{cc.attrs.middlenamelbl} : 
+			#{cc.attrs.middlenamelabel} : 
 			<h:inputText id="name1" value="#{cc.attrs.middlenamevalue}" />
-			#{cc.attrs.lastnamelbl} : 
+			#{cc.attrs.lastnamelabel} : 
 			<h:inputText id="name2" value="#{cc.attrs.lastnamevalue}" />
-					#{cc.attrs.doblbl} : 
+					#{cc.attrs.doblabel} : 
 					<p:calendar value="#{cc.attrs.dobvalue}"></p:calendar>
-					#{cc.attrs.joiningdatelbl} : 
+					#{cc.attrs.joiningdatelabel} : 
 					<p:calendar value="#{cc.attrs.joiningdatevalue}"></p:calendar>
 					#{cc.attrs.enddatelebl} : 
 					<p:calendar value="#{cc.attrs.enddatevalue}"></p:calendar>

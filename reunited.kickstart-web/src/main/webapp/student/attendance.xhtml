@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:r="http://java.sun.com/jsf/composite/reunited"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+
+	<ui:composition template="/common/layout.xhtml">
+
+		<ui:define name="content">
+
+			<h:form id="form1">
+				<h:panelGrid columns="2" id="grid">
+				helll
+
+					<p:dataTable id="attendanceList" var="attendance"
+						value="#{attendanceFilter.attendance}" editable="true"
+						style="margin-bottom:20px">
+
+						<p:ajax event="rowEdit" listener="#{attendanceFilter.onRowEdit}"
+						 />
+						<p:ajax event="rowEditCancel"
+							listener="#{attendanceFilter.onRowCancel}"></p:ajax>
+
+
+						<p:column headerText="Mark">
+							<p:cellEditor>
+								<f:facet name="output">
+									<h:selectBooleanCheckbox value="#{attendance.marked}" />
+								</f:facet>
+							</p:cellEditor>
+						</p:column>
+
+					</p:dataTable>
+
+				</h:panelGrid>
+			</h:form>
+		</ui:define>
+
+
+
+	</ui:composition>
+
+</h:body>
+
+</html>
