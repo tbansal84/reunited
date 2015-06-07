@@ -9,22 +9,41 @@
 
 <composite:interface>
 
-	<composite:attribute name="addressLine1Label" />
-	<composite:attribute name="addressLine1value" />
+	<composite:attribute name="firstnamelbl" />
+	<composite:attribute name="firstnamevalue" />
+		<composite:attribute name="middlenamelbl" />
+	<composite:attribute name="middlenamevalue" />
+		<composite:attribute name="lastnamelbl" />
+	<composite:attribute name="lastnamevalue" />
+		<composite:attribute name="doblbl" />
+	<composite:attribute name="dobvalue" />
+		<composite:attribute name="joiningdatelbl" />
+	<composite:attribute name="joiningdatevalue" />
+	<composite:attribute name="enddatelbl" />
+	<composite:attribute name="enddatevalue" />
 </composite:interface>
 
 <composite:implementation>
 
 
 
-		<h:panelGrid columns="2" id="textPanel">
+	<h:panelGrid columns="2" id="textPanel">
 			#{cc.attrs.firstnamelbl} : 
 			<h:inputText id="name" value="#{cc.attrs.firstnamevalue}" />
 			#{cc.attrs.middlenamelbl} : 
 			<h:inputText id="name1" value="#{cc.attrs.middlenamevalue}" />
 			#{cc.attrs.lastnamelbl} : 
 			<h:inputText id="name2" value="#{cc.attrs.lastnamevalue}" />
-		</h:panelGrid>
+					#{cc.attrs.doblbl} : 
+					<p:calendar value="#{cc.attrs.dobvalue}"></p:calendar>
+					#{cc.attrs.joiningdatelbl} : 
+					<p:calendar value="#{cc.attrs.joiningdatevalue}"></p:calendar>
+					#{cc.attrs.enddatelebl} : 
+					<p:calendar value="#{cc.attrs.enddatevalue}"></p:calendar>
+
+
+
+	</h:panelGrid>
 
 
 

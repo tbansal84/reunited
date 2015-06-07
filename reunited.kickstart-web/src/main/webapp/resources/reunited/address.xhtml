@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:composite="http://java.sun.com/jsf/composite">
 
 
@@ -10,6 +10,35 @@ xmlns:h="http://java.sun.com/jsf/html"
 
 	<composite:attribute name="addressLine1Label" />
 	<composite:attribute name="addressLine1value" />
+	<composite:attribute name="addressLine2Label" />
+	<composite:attribute name="addressLine3value" />
+	<composite:attribute name="addressPCitylbl" />
+	<composite:attribute name="addressPCityvalue" />
+	<composite:attribute name="addressPDistrictLabel" />
+	<composite:attribute name="addressPDistrictvalue" />
+	<composite:attribute name="addressPPostcodeLabel" />
+	<composite:attribute name="addressPPostcodevalue" />
+	<composite:attribute name="addressPStateLabel" />
+	<composite:attribute name="addressPStatevalue" />
+	<composite:attribute name="addressPCountryLabel" />
+	<composite:attribute name="addressPCountryvalue" />
+	<composite:attribute name="addressCLine1Label" />
+	<composite:attribute name="addressCLine1value" />
+	<composite:attribute name="addressCLine2Label" />
+	<composite:attribute name="addressCLine2value" />
+	<composite:attribute name="addressCLine3Label" />
+	<composite:attribute name="addressCLine3value" />
+	
+	<composite:attribute name="addressCCitylbl" />
+	<composite:attribute name="addressCCityvalue" />
+	<composite:attribute name="addressCDistrictLabel" />
+	<composite:attribute name="addressCDistrictvalue" />
+	<composite:attribute name="addressCPostcodeLabel" />
+	<composite:attribute name="addressCPostcodevalue" />
+	<composite:attribute name="addressCStateLabel" />
+	<composite:attribute name="addressCStatevalue" />
+	<composite:attribute name="addressCCountryLabel" />
+	<composite:attribute name="addressCCountryvalue" />
 </composite:interface>
 
 <composite:implementation>
@@ -20,6 +49,52 @@ xmlns:h="http://java.sun.com/jsf/html"
 	<h:panelGrid columns="2" id="textPanel">
 			#{cc.attrs.addressLine1Label} : 
 			<h:inputText id="name" value="#{cc.attrs.addressLine1value}" />
+			#{cc.attrs.addressLine2Label} : 
+			<h:inputText id="name" value="#{cc.attrs.addressLine2value}" />
+			#{cc.attrs.addressLine3Label} : 
+			<h:inputText id="name" value="#{cc.attrs.addressLine3value}" />
+			#{cc.attrs.addressPCitylabel} : 
+			<h:inputText id="name" value="#{cc.attrs.addressPCityvalue}" />
+			#{cc.attrs.addressPDistrictlable} : 
+			<h:inputText id="name" value="#{cc.attrs.addressPDistrictvalue}" />
+			#{cc.attrs.addressPPostcode} : 
+			<h:inputText id="name" value="#{cc.attrs.addressPPostcode}" />
+			#{cc.attrs.addressPState} : 
+			<h:inputText id="name" value="#{cc.attrs.addressPState}" />
+			#{cc.attrs.addressPCountry} : 
+			<h:inputText id="name" value="#{cc.attrs.addressPCountry}" />
+			#{cc.attrs.addressCLine1} : 
+			<h:inputText id="name" value="#{cc.attrs.addressCLine1}" />
+			#{cc.attrs.addressCLine2} : 
+			<h:inputText id="name" value="#{cc.attrs.addressCLine2}" />
+			#{cc.attrs.addressCLine3} : 
+			<h:inputText id="name" value="#{cc.attrs.addressCLine3}" />
+			#{cc.attrs.addressCCity} : 
+			<h:inputText id="name" value="#{cc.attrs.addressCCity}" />
+			#{cc.attrs.addressCDistrict} : 
+			<h:inputText id="name" value="#{cc.attrs.addressCDistrict}" />
+			#{cc.attrs.addressCPostcode} : 
+			<h:inputText id="name" value="#{cc.attrs.addressCPostcode}" />
+			#{cc.attrs.addressCState} : 
+			<h:inputText id="name" value="#{cc.attrs.addressCState}" />
+			#{cc.attrs.addressCCountry} : 
+			<h:inputText id="name" value="#{cc.attrs.addressCCountry}" />
+			#{cc.attrs.addressLandCode} : 
+			<h:inputText id="name" value="#{cc.attrs.addressLandCode}" />
+			#{cc.attrs.addressMobile1Number} : 
+			<h:inputText id="name" value="#{cc.attrs.addressMobile1Code}" />
+			#{cc.attrs.addressMobile2Code} : 
+			<h:inputText id="name" value="#{cc.attrs.addressMobile2Code}" />
+			#{cc.attrs.addressMobile2Number} : 
+			<h:inputText id="name" value="#{cc.attrs.addressMobile2Number}" />
+			#{cc.attrs.addressFax} : 
+				<h:inputText id="name" value="#{cc.attrs.addressFax}" />
+			#{cc.attrs.addressEmail1} : 
+			<h:inputText id="name" value="#{cc.attrs.addressEmail1}" />
+			#{cc.attrs.addressEmail2} : 
+			<h:inputText id="name" value="#{cc.attrs.addressEmail2}" />
+
+
 	</h:panelGrid>
 
 

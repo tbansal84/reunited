@@ -31,10 +31,8 @@ public class ProfileController {
 	private FacesContext facesContext;
 
 	@Inject
-	UserBean student;
+	ProfileBean student;
 
-	@Inject
-	AddressBean address;
 
 	@Inject
 	StudentRegistration studentRegistration;
@@ -42,8 +40,8 @@ public class ProfileController {
 	public void register() throws Exception {
 		System.out.println("registering \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 		try {
-			studentRegistration.register(new StudentConverter()
-					.getStudentEntity(student));
+//			studentRegistration.register(new StudentConverter()
+//					.getStudentEntity(student));
 			facesContext.addMessage(null, new FacesMessage(
 					FacesMessage.SEVERITY_INFO, "Registered!",
 					"Registration successful"));
