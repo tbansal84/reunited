@@ -16,24 +16,23 @@
 			<h:form id="form1">
 				<h:panelGrid columns="2" id="grid">
 				helll
+				
+				
 
 					<p:dataTable id="attendanceList" var="attendance"
 						value="#{attendanceFilter.attendance}" editable="true"
 						style="margin-bottom:20px">
 
-						<p:ajax event="rowEdit" listener="#{attendanceFilter.onRowEdit}"
-						 />
-						<p:ajax event="rowEditCancel"
-							listener="#{attendanceFilter.onRowCancel}"></p:ajax>
+						<p:ajax event="rowEdit" listener="#{dtEditView.onRowEdit}"
+							update=":form:msgs" />
+						<p:ajax event="rowEditCancel" listener="#{dtEditView.onRowCancel}"
+							update=":form:msgs" />
 
 
-						<p:column headerText="Mark">
-							<p:cellEditor>
-								<f:facet name="output">
-									<h:selectBooleanCheckbox value="#{attendance.marked}" />
-								</f:facet>
-							</p:cellEditor>
+						<p:column headerText="Id">
+							<h:outputText value="#{attendance.marked}" />
 						</p:column>
+
 
 					</p:dataTable>
 

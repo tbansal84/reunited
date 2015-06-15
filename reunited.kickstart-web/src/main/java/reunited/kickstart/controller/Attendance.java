@@ -6,14 +6,24 @@ public class Attendance {
 
 	private boolean marked;
 	private String id;
+	private String userName;
 	
 	
 
-	public Attendance(boolean marked, String id, Date date) {
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public Attendance(boolean marked, String id, Date date,String userName) {
 		super();
 		this.marked = marked;
 		this.id = id;
 		this.date = date;
+		this.userName=userName;
 	}
 
 	public String getId() {

@@ -21,7 +21,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
-import reunited.kickstart.convertandsave.StudentConverter;
 import reunited.kickstart.service.StudentRegistration;
 
 @Model
@@ -31,7 +30,7 @@ public class ProfileController {
 	private FacesContext facesContext;
 
 	@Inject
-	ProfileBean student;
+	ProfileBean profileBean;
 
 
 	@Inject

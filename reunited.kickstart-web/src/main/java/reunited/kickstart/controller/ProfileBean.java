@@ -1,15 +1,20 @@
 package reunited.kickstart.controller;
 
+import java.io.Serializable;
 import java.util.Date;
 
+import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 
-import com.reunited.entities.Address;
-import com.reunited.entities.Branch;
-
-@ManagedBean
-public class ProfileBean {
+@ManagedBean(name = "profileBean", eager = true)
+@RequestScoped
+public class ProfileBean implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String userId;
 	private String branch;
 	private String StringByUserAuthType;

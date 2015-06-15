@@ -4,7 +4,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:composite="http://java.sun.com/jsf/composite">
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:p="http://primefaces/org/ui"
+	>
 
 
 <composite:interface>
@@ -35,11 +37,11 @@
 			#{cc.attrs.lastnamelabel} : 
 			<h:inputText id="name2" value="#{cc.attrs.lastnamevalue}" />
 					#{cc.attrs.doblabel} : 
-					<p:calendar value="#{cc.attrs.dobvalue}"></p:calendar>
+					<p:calendar value="#{cc.attrs.dobvalue}" id="dob"></p:calendar>
 					#{cc.attrs.joiningdatelabel} : 
-					<p:calendar value="#{cc.attrs.joiningdatevalue}"></p:calendar>
-					#{cc.attrs.enddatelebl} : 
-					<p:calendar value="#{cc.attrs.enddatevalue}"></p:calendar>
+					<p:calendar value="#{cc.attrs.joiningdatevalue}" id="joiningdate"></p:calendar>
+					#{cc.attrs.enddatelabel} : 
+					<p:calendar value="#{cc.attrs.enddatevalue}" id="enddate"></p:calendar>
 
 
 

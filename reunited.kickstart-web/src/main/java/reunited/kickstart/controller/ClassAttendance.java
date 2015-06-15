@@ -12,28 +12,22 @@ import javax.faces.context.FacesContext;
 
 import org.primefaces.event.CellEditEvent;
 import org.primefaces.event.RowEditEvent;
-@ManagedBean(name = "attendanceFilter", eager = true)
-@RequestScoped
-public class AttendanceFilter {
 
-	private Date startDate;
-	private Date endDate;
+@ManagedBean(name = "classAttBean", eager = true)
+@RequestScoped
+public class ClassAttendance {
+
 	private List<Attendance> attendance;
-	
-	
-	//
-	
-	//
-	
-	//
+
+	private String className;
 
 	@PostConstruct
 	public void init() {
 
 		attendance = new ArrayList<Attendance>();
-//		attendance.add(new Attendance(true, "1", new Date()));
-//		attendance.add(new Attendance(true, "2", new Date()));
-//		attendance.add(new Attendance(true, "3", new Date()));
+		attendance.add(new Attendance(true, "1", new Date(),"User1"));
+		attendance.add(new Attendance(true, "2", new Date(),"User1"));
+		attendance.add(new Attendance(true, "3", new Date(),"User1"));
 
 	}
 
@@ -45,28 +39,14 @@ public class AttendanceFilter {
 		this.attendance = attendance;
 	}
 
-	public Date getStartDate() {
-		return startDate;
+	public String getClassName() {
+		return className;
 	}
 
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
+	public void setClassName(String className) {
+		this.className = className;
 	}
-
-	public Date getEndDate() {
-		return endDate;
-	}
-
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
-	}
-
-	public void onRowEdit(RowEditEvent event) {
-		FacesMessage msg = new FacesMessage("Car Edited",
-				((Attendance) event.getObject()).getId());
-		FacesContext.getCurrentInstance().addMessage(null, msg);
-	}
-
+	
 	public void onRowCancel(RowEditEvent event) {
 		FacesMessage msg = new FacesMessage("Edit Cancelled",
 				((Attendance) event.getObject()).getId());
@@ -83,5 +63,6 @@ public class AttendanceFilter {
 			FacesContext.getCurrentInstance().addMessage(null, msg);
 		}
 	}
+
 
 }

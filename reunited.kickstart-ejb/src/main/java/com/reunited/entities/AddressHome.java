@@ -3,13 +3,17 @@ package com.reunited.entities;
 // Generated May 26, 2015 3:56:20 PM by Hibernate Tools 4.3.1
 
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
  * Home object for domain model class Address.
+ * 
  * @see com.reunited.entities.Address
  * @author Hibernate Tools
  */
@@ -66,4 +70,5 @@ public class AddressHome {
 			throw re;
 		}
 	}
+
 }
