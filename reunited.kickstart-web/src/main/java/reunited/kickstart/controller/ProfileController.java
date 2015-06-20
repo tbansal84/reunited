@@ -18,29 +18,56 @@ package reunited.kickstart.controller;
 
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
-import reunited.kickstart.service.StudentRegistration;
+import reunited.kickstart.service.ProfileRegistration;
 
-@Model
+@ManagedBean
+@SessionScoped
 public class ProfileController {
 
 	@Inject
 	private FacesContext facesContext;
 
-	@Inject
+	@ManagedProperty(value = "#{profileBean}")
 	ProfileBean profileBean;
 
+	public FacesContext getFacesContext() {
+		return facesContext;
+	}
+
+	public void setFacesContext(FacesContext facesContext) {
+		this.facesContext = facesContext;
+	}
+
+	public ProfileBean getProfileBean() {
+		return profileBean;
+	}
+
+	public void setProfileBean(ProfileBean profileBean) {
+		this.profileBean = profileBean;
+	}
+
+	public ProfileRegistration getProfileRegistration() {
+		return profileRegistration;
+	}
+
+	public void setProfileRegistration(ProfileRegistration profileRegistration) {
+		this.profileRegistration = profileRegistration;
+	}
 
 	@Inject
-	StudentRegistration studentRegistration;
+	ProfileRegistration profileRegistration;
 
 	public void register() throws Exception {
 		System.out.println("registering \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 		try {
-//			studentRegistration.register(new StudentConverter()
-//					.getStudentEntity(student));
+			 profileRegistration.register(new ProfileConverter()
+			 .getProfileEntity(profileBean));
 			facesContext.addMessage(null, new FacesMessage(
 					FacesMessage.SEVERITY_INFO, "Registered!",
 					"Registration successful"));

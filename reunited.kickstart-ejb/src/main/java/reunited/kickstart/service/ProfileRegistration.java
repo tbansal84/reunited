@@ -16,28 +16,43 @@
  */
 package reunited.kickstart.service;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
+import com.reunited.entities.Address;
+import com.reunited.entities.PersistenceBase;
+import com.reunited.entities.User;
+
 // The @Stateless annotation eliminates the need for manual transaction demarcation
 @Stateless
 public class ProfileRegistration {
 
-    @Inject
-    private Logger log;
+	@Inject
+	private Logger log;
 
-    @Inject
-    private EntityManager em;
+	@Inject
+	private EntityManager em;
 
-//    @Inject
-//    private Event<Profile> memberEventSrc;
+	// @Inject
+	// private Event<Profile> memberEventSrc;
+	public void register(User member, Address address) throws Exception {
+		// log.info("Registering " + member.getName());
+		em.persist(member);
+		em.flush();
+		// memberEventSrc.fire(member);
+	}
 
-//    public void register(Profile member) throws Exception {
-//        log.info("Registering " + member.getName());
-//        em.persist(member);
-//        memberEventSrc.fire(member);
-//    }
+	public void register(List<PersistenceBase> entities) throws Exception {
+		// log.info("Registering " + member.getName());
+		
+		if(entities==null||entities.isEmpty()||entities.size()!=2){
+			throw new IllegalArgumentException();
+		}
+		this.register((User)entities.get(0), (Address)entities.get(1));
+		// memberEventSrc.fire(member);
+	}
 }

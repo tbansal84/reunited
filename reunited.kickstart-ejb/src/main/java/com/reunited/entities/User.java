@@ -23,7 +23,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "user", catalog = "reunited")
-public class User implements java.io.Serializable {
+public class User extends PersistenceBase implements java.io.Serializable  {
 
 	private Integer userId;
 	private Address address;

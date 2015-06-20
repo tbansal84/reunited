@@ -1,14 +1,13 @@
 package reunited.kickstart.controller;
 
 import java.io.Serializable;
-import java.util.Date;
 
-import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 @ManagedBean(name = "profileBean", eager = true)
-@RequestScoped
+@SessionScoped
 public class ProfileBean implements Serializable {
 	
 	/**
@@ -23,13 +22,13 @@ public class ProfileBean implements Serializable {
 	private String userLoginId;
 	private String userEmailAddress;
 	private String userRegistrationId;
-	private Date userJoiningDate;
-	private Date userTenureEndDate;
-	private boolean userSex;
+	private String userJoiningDate;
+	private String userTenureEndDate;
+	private String userSex;
 	private String userFirstName;
 	private String userMiddleName;
 	private String userSurname;
-	private Date userDob;
+	private String userDob;
 	private String addressId;
 	private String addressPLine1;
 	private String addressPLine2;
@@ -103,22 +102,24 @@ public class ProfileBean implements Serializable {
 	public void setUserRegistrationId(String userRegistrationId) {
 		this.userRegistrationId = userRegistrationId;
 	}
-	public Date getUserJoiningDate() {
+	
+	public String getUserJoiningDate() {
 		return userJoiningDate;
 	}
-	public void setUserJoiningDate(Date userJoiningDate) {
+	public void setUserJoiningDate(String userJoiningDate) {
 		this.userJoiningDate = userJoiningDate;
 	}
-	public Date getUserTenureEndDate() {
+	public String getUserTenureEndDate() {
 		return userTenureEndDate;
 	}
-	public void setUserTenureEndDate(Date userTenureEndDate) {
+	public void setUserTenureEndDate(String userTenureEndDate) {
 		this.userTenureEndDate = userTenureEndDate;
 	}
-	public boolean isUserSex() {
+	public String getUserSex() {
 		return userSex;
 	}
-	public void setUserSex(boolean userSex) {
+	
+	public void setUserSex(String userSex) {
 		this.userSex = userSex;
 	}
 	public String getUserFirstName() {
@@ -139,10 +140,10 @@ public class ProfileBean implements Serializable {
 	public void setUserSurname(String userSurname) {
 		this.userSurname = userSurname;
 	}
-	public Date getUserDob() {
+	public String getUserDob() {
 		return userDob;
 	}
-	public void setUserDob(Date userDob) {
+	public void setUserDob(String userDob) {
 		this.userDob = userDob;
 	}
 	public String getAddressId() {
