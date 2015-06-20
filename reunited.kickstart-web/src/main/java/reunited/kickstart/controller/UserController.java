@@ -16,10 +16,15 @@
  */
 package reunited.kickstart.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -27,71 +32,28 @@ import javax.inject.Inject;
 import reunited.kickstart.service.ProfileRegistration;
 
 @ManagedBean
-@SessionScoped
-public class ProfileController {
+@RequestScoped
+public class UserController {
 
 	@Inject
 	private FacesContext facesContext;
 
+	private List<ProfileBean> profiles;
+	
+	private ProfileBean selectedProfile;
+
+	@PostConstruct
+	public void init() {
+
+		profiles = new ArrayList<ProfileBean>();
+		profiles = ProfileConverter.getProfileList(profileRegistration
+				.getProfiles());
+
+	}
+
 	@ManagedProperty(value = "#{profileBean}")
 	ProfileBean profileBean;
 
-	
-	@Inject
-	ProfileRegistration profileRegistration;
-
-	public void register() throws Exception {
-		System.out.println("registering \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-		try {
-			 profileRegistration.register(new ProfileConverter()
-			 .getProfileEntity(profileBean));
-			facesContext.addMessage(null, new FacesMessage(
-					FacesMessage.SEVERITY_INFO, "Registered!",
-					"Registration successful"));
-		} catch (Exception e) {
-			String errorMessage = getRootErrorMessage(e);
-			FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR,
-					errorMessage, "Registration Unsuccessful");
-			facesContext.addMessage(null, m);
-		}
-	}
-	
-	public void update() throws Exception {
-		System.out.println("registering \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-		try {
-			 profileRegistration.register(new ProfileConverter()
-			 .getProfileEntity(profileBean));
-			facesContext.addMessage(null, new FacesMessage(
-					FacesMessage.SEVERITY_INFO, "Registered!",
-					"Registration successful"));
-		} catch (Exception e) {
-			String errorMessage = getRootErrorMessage(e);
-			FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR,
-					errorMessage, "Registration Unsuccessful");
-			facesContext.addMessage(null, m);
-		}
-	}
-
-
-	private String getRootErrorMessage(Exception e) {
-		// Default to general error message that registration failed.
-		String errorMessage = "Registration failed. See server log for more information";
-		if (e == null) {
-			// This shouldn't happen, but return the default messages
-			return errorMessage;
-		}
-
-		// Start with the exception and recurse to find the root cause
-		Throwable t = e;
-		while (t != null) {
-			// Get the message from the Throwable class instance
-			errorMessage = t.getLocalizedMessage();
-			t = t.getCause();
-		}
-		// This is the root cause message
-		return errorMessage;
-	}
-	
 	public FacesContext getFacesContext() {
 		return facesContext;
 	}
@@ -114,6 +76,76 @@ public class ProfileController {
 
 	public void setProfileRegistration(ProfileRegistration profileRegistration) {
 		this.profileRegistration = profileRegistration;
+	}
+
+	@Inject
+	ProfileRegistration profileRegistration;
+
+	public void register() throws Exception {
+		System.out.println("registering \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+		try {
+			profileRegistration.register(new ProfileConverter()
+					.getProfileEntity(profileBean));
+			facesContext.addMessage(null, new FacesMessage(
+					FacesMessage.SEVERITY_INFO, "Registered!",
+					"Registration successful"));
+		} catch (Exception e) {
+			String errorMessage = getRootErrorMessage(e);
+			FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+					errorMessage, "Registration Unsuccessful");
+			facesContext.addMessage(null, m);
+		}
+	}
+
+	public void edit() throws Exception {
+		System.out.println("registering \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+		try {
+			profileRegistration.register(new ProfileConverter()
+					.getProfileEntity(profileBean));
+			facesContext.addMessage(null, new FacesMessage(
+					FacesMessage.SEVERITY_INFO, "Registered!",
+					"Registration successful"));
+		} catch (Exception e) {
+			String errorMessage = getRootErrorMessage(e);
+			FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+					errorMessage, "Registration Unsuccessful");
+			facesContext.addMessage(null, m);
+		}
+	}
+
+	private String getRootErrorMessage(Exception e) {
+		// Default to general error message that registration failed.
+		String errorMessage = "Registration failed. See server log for more information";
+		if (e == null) {
+			// This shouldn't happen, but return the default messages
+			return errorMessage;
+		}
+
+		// Start with the exception and recurse to find the root cause
+		Throwable t = e;
+		while (t != null) {
+			// Get the message from the Throwable class instance
+			errorMessage = t.getLocalizedMessage();
+			t = t.getCause();
+		}
+		// This is the root cause message
+		return errorMessage;
+	}
+
+	public List<ProfileBean> getProfiles() {
+		return profiles;
+	}
+
+	public void setProfiles(List<ProfileBean> profiles) {
+		this.profiles = profiles;
+	}
+
+	public ProfileBean getSelectedProfile() {
+		return selectedProfile;
+	}
+
+	public void setSelectedProfile(ProfileBean selectedProfile) {
+		this.selectedProfile = selectedProfile;
 	}
 
 }

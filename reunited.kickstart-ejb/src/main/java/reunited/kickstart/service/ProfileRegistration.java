@@ -42,17 +42,33 @@ public class ProfileRegistration {
 	public void register(User member, Address address) throws Exception {
 		// log.info("Registering " + member.getName());
 		em.persist(member);
+		em.persist(address);
 		em.flush();
 		// memberEventSrc.fire(member);
 	}
 
 	public void register(List<PersistenceBase> entities) throws Exception {
 		// log.info("Registering " + member.getName());
-		
-		if(entities==null||entities.isEmpty()||entities.size()!=2){
+
+		if (entities == null || entities.isEmpty() || entities.size() != 2) {
 			throw new IllegalArgumentException();
 		}
-		this.register((User)entities.get(0), (Address)entities.get(1));
+		this.register((User) entities.get(0), (Address) entities.get(1));
 		// memberEventSrc.fire(member);
+	}
+
+	public void update(List<PersistenceBase> entities) throws Exception {
+		// log.info("Registering " + member.getName());
+
+		if (entities == null || entities.isEmpty() || entities.size() != 2) {
+			throw new IllegalArgumentException();
+		}
+		this.register((User) entities.get(0), (Address) entities.get(1));
+		// memberEventSrc.fire(member);
+	}
+
+	public List<User> getProfiles() {
+		// TODO Auto-generated method stub
+		return em.createQuery("from User").getResultList();
 	}
 }

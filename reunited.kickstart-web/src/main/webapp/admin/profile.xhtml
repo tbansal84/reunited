@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:r="http://java.sun.com/jsf/composite/reunited"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+
+	<ui:composition template="/common/layout.xhtml">
+
+		<ui:define name="content">
+			<h:form id="form">
+				<p:dialog header="Car Info" widgetVar="carDialog" modal="true"
+					showEffect="fade" hideEffect="fade" resizable="false">
+					<p:outputPanel id="carDetail" style="text-align:center;">
+						<h:panelGrid columns="2" id="grid">
+							<r:address addressLine1Label="Address 1"
+								addressLine1value="#{profileBean.addressPLine1}"
+								addressLine2Label="Address 2"
+								addressLine2value="#{profileBean.addressPLine2}"
+								addressLine3Label="Address 3"
+								addressLine3value="#{profileBean.addressPLine3}"
+								addressPCitylabel="Address 1"
+								addressPCityvalue="#{profileBean.addressPCity}"
+								addressPDistrictlable="Address 1"
+								addressPDistrictvalue="#{profileBean.addressPDistrict}"
+								addressPPostcodelabel="Address 1"
+								addressPPostcodelabelvalue="#{profileBean.addressPPostcode}"
+								addressPStateLabel="Address 1"
+								addressPStatevalue="#{profileBean.addressPState}"
+								addressPCountrylabel="Address 1"
+								addressPCountryvalue="#{profileBean.addressPCountry}"
+								addressCLine1Label="Address 1"
+								addressCLine1value="#{profileBean.addressCLine1}"
+								addressCLine2Label="Address 2"
+								addressCLine2value="#{profileBean.addressCLine2}"
+								addressCLine3Label="Address 3"
+								addressCLine3value="#{profileBean.addressCLine3}"
+								addressCCitylbl="City"
+								addressCCityvalue="#{profileBean.addressCCity}"
+								addressCDistrictlable="Address 1"
+								addressCDistrictvalue="#{profileBean.addressCDistrict}"
+								addressCPostcodelabel="Address 1"
+								addressCPostcodelabelvalue="#{profileBean.addressCPostcode}"
+								addressCStateLabel="Address 1"
+								addressCStatevalue="#{profileBean.addressCState}"
+								addressCCountrylabel="Address 1"
+								addressCCountryvalue="#{profileBean.addressCCountry}"
+								id="address"></r:address>
+							<r:user firstnamelabel="First Name"
+								firstnamevalue="#{profileBean.userFirstName}"
+								middlenamelabel="Middle Name"
+								middlenamevalue="#{profileBean.userMiddleName}"
+								lastnamelabel="Last Name"
+								lastnamevalue="#{profileBean.userSurname}" doblabel="DOB"
+								dobvalue="#{profileBean.userDob}"
+								joiningdatelabel="Joining Date"
+								joiningdatevalue="#{profileBean.userJoiningDate}"
+								enddatelabel="End Date"
+								enddatevalue="#{profileBean.userTenureEndDate}" id="user"></r:user>
+							<p:commandButton action="#{profileController.register}"
+								value="Register" id="button" update=":form:profileList" oncomplete="PF('carDialog').hide()"></p:commandButton>
+						</h:panelGrid>
+					</p:outputPanel>
+				</p:dialog>
+
+
+				<p:dataTable id="profileList" var="prof"
+					value="#{userController.profiles}" style="margin-bottom:20px">
+					<p:column headerText="User First Name">
+						<h:outputText value="#{prof.userFirstName}" />
+					</p:column>
+					<p:column headerText="Address Line 1">
+						<h:outputText value="#{prof.addressPLine1}" />
+					</p:column>
+
+					<p:column style="width:32px;text-align: center">
+						<p:commandButton update=":form:carDetail"
+							oncomplete="PF('carDialog').show()" icon="ui-icon-plusthick"
+							title="View">
+
+						</p:commandButton>
+					</p:column>
+
+					<p:column style="width:32px;text-align: center">
+						<p:commandButton icon="ui-icon-minusthick" title="View">
+							<f:setPropertyActionListener value="#{prof}"
+								target="#{profileBean}" />
+						</p:commandButton>
+					</p:column>
+					<p:column style="width:32px;text-align: center">
+						<p:commandButton update=":form:carDetail"
+							oncomplete="PF('carDialog').show()" icon="ui-icon-pencil"
+							title="View">
+							<f:setPropertyActionListener value="#{prof}"
+								target="#{profileBean}" />
+						</p:commandButton>
+					</p:column>
+				</p:dataTable>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+
+</html>

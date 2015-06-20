@@ -54,6 +54,74 @@ public class ProfileBean implements Serializable {
 	private String addressFax;
 	private String addressEmail1;
 	private String addressEmail2;
+	
+	
+	
+	
+	
+	public ProfileBean() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public ProfileBean(String userId, String branch,
+			String stringByUserAuthType, String stringByUserStatus,
+			String stringByUserType, String userLoginId,
+			String userEmailAddress, String userRegistrationId,
+			String userJoiningDate, String userTenureEndDate, String userSex,
+			String userFirstName, String userMiddleName, String userSurname,
+			String userDob, String addressId, String addressPLine1,
+			String addressPLine2, String addressPLine3, String addressPCity,
+			String addressPDistrict, String addressPPostString,
+			String addressPState, String addressPCountry, String addressCLine1,
+			String addressCLine2, String addressCLine3, String addressCCity,
+			String addressCDistrict, String addressCPostString,
+			String addressCState, String addressCCountry,
+			String addressLandString, String addressMobile1String,
+			String addressMobile1Number, String addressMobile2String,
+			String addressMobile2Number, String addressFax,
+			String addressEmail1, String addressEmail2) {
+		super();
+		this.userId = userId;
+		this.branch = branch;
+		StringByUserAuthType = stringByUserAuthType;
+		StringByUserStatus = stringByUserStatus;
+		StringByUserType = stringByUserType;
+		this.userLoginId = userLoginId;
+		this.userEmailAddress = userEmailAddress;
+		this.userRegistrationId = userRegistrationId;
+		this.userJoiningDate = userJoiningDate;
+		this.userTenureEndDate = userTenureEndDate;
+		this.userSex = userSex;
+		this.userFirstName = userFirstName;
+		this.userMiddleName = userMiddleName;
+		this.userSurname = userSurname;
+		this.userDob = userDob;
+		this.addressId = addressId;
+		this.addressPLine1 = addressPLine1;
+		this.addressPLine2 = addressPLine2;
+		this.addressPLine3 = addressPLine3;
+		this.addressPCity = addressPCity;
+		this.addressPDistrict = addressPDistrict;
+		this.addressPPostString = addressPPostString;
+		this.addressPState = addressPState;
+		this.addressPCountry = addressPCountry;
+		this.addressCLine1 = addressCLine1;
+		this.addressCLine2 = addressCLine2;
+		this.addressCLine3 = addressCLine3;
+		this.addressCCity = addressCCity;
+		this.addressCDistrict = addressCDistrict;
+		this.addressCPostString = addressCPostString;
+		this.addressCState = addressCState;
+		this.addressCCountry = addressCCountry;
+		this.addressLandString = addressLandString;
+		this.addressMobile1String = addressMobile1String;
+		this.addressMobile1Number = addressMobile1Number;
+		this.addressMobile2String = addressMobile2String;
+		this.addressMobile2Number = addressMobile2Number;
+		this.addressFax = addressFax;
+		this.addressEmail1 = addressEmail1;
+		this.addressEmail2 = addressEmail2;
+	}
 	public String getUserId() {
 		return userId;
 	}
