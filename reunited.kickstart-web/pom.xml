@@ -32,6 +32,14 @@
 			<url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
 		</license>
 	</licenses>
+	
+	<properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <apache-shiro.version>1.2.1</apache-shiro.version>
+        <primefaces.version>3.4.1</primefaces.version>
+        <slf4j.version>1.7.2</slf4j.version>
+        <logback.version>1.0.7</logback.version>
+    </properties>
 
 	<dependencies>
 
@@ -94,6 +102,26 @@
 			<artifactId>primefaces</artifactId>
 			<version>5.2</version>
 		</dependency>
+		
+		 <!-- Security -->
+
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+            <version>${apache-shiro.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-web</artifactId>
+            <version>${apache-shiro.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-ehcache</artifactId>
+            <version>${apache-shiro.version}</version>
+        </dependency>
 
 
 	</dependencies>
