@@ -29,6 +29,7 @@ public class ProfileConverter {
 		profile.setUserFirstName(user.getUserFirstName());
 		profile.setAddressPLine1(user.getAddress() != null ? "" : user
 				.getAddress().getAddressPLine1());
+		profile.setId(user.getUserId());
 
 		return profile;
 
@@ -36,10 +37,10 @@ public class ProfileConverter {
 
 	public static List<ProfileBean> getProfileList(List<User> users) {
 		List<ProfileBean> profiles = new ArrayList<ProfileBean>();
+		int i=0;
 		for (User user : users) {
-
 			profiles.add(getProfileBean(user));
-
+			
 		}
 		return profiles;
 	}

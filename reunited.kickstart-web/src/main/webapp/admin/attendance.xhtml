@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:r="http://java.sun.com/jsf/composite/reunited"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+
+	<ui:composition template="/common/layout.xhtml">
+
+		<ui:define name="content">
+			<h:form id="form">
+				<p:dialog header="Car Info" widgetVar="carDialog" modal="true"
+					showEffect="fade" hideEffect="fade" resizable="false">
+					<p:outputPanel id="carDetail" style="text-align:center;">
+						<h:panelGrid columns="2" id="grid">
+
+							<p:calendar value="#{attendanceController.from}"></p:calendar>
+							<p:calendar value="#{attendanceController.to}"></p:calendar>
+							<p:commandButton action="#{attendanceController.mark}"
+								value="Register" id="button" update=":form:profileList"
+								oncomplete="PF('carDialog').hide()"></p:commandButton>
+						</h:panelGrid>
+					</p:outputPanel>
+				</p:dialog>
+
+
+				<p:dataTable id="profileList" var="prof"
+					value="#{userController.profiles}" style="margin-bottom:20px"
+					selection="#{attendanceController.selectedProfiles}" rowKey="#{prof.id}">
+					<p:column selectionMode="multiple"
+						style="width:16px;text-align:center" />
+					<p:column headerText="User First Name">
+						<h:outputText value="#{prof.userFirstName}" />
+					</p:column>
+					<p:column headerText="Address Line 1">
+						<h:outputText value="#{prof.addressPLine1}" />
+					</p:column>
+
+					<p:column style="width:32px;text-align: center">
+						<p:commandButton update=":form:carDetail"
+							oncomplete="PF('carDialog').show()" icon="ui-icon-pencil"
+							title="View">
+							<f:setPropertyActionListener value="#{prof}"
+								target="#{profileBean}" />
+						</p:commandButton>
+					</p:column>
+				</p:dataTable>
+
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+
+</html>
